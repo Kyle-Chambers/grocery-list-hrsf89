@@ -21,7 +21,7 @@ class App extends React.Component {
     let listCopy = this.state.list.slice()
     let id = listCopy.length + 1;
 
-    console.log(item);
+    //console.log(item);
 
     listCopy.push({id: id, quantity: qty, description: item});
     
