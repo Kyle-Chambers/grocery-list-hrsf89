@@ -10,12 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/add', function (req, res) {
-  // console.log('get request to server')
-  // console.log(typeof req.body, 'from server <><><><><><><>');
   database.save(req.body);
-
-  res.status(201).send();
-  
+  res.status(201).send();  
 })
 
 app.listen(3000, function() {
