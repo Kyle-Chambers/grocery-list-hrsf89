@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GroceryList from './components/GroceryList.jsx';
@@ -22,8 +23,13 @@ class App extends React.Component {
     let id = listCopy.length + 1;
 
     //console.log(item);
-
     listCopy.push({id: id, quantity: qty, description: item});
+
+    $.ajax({
+      type: "POST",
+      url: 'http://localhost:3000/add',
+      data: {id: id, quantity: qty, description: item}
+    });
     
     this.setState({
       list: listCopy

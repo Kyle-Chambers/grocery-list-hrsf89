@@ -5,15 +5,17 @@ var app = express();
 
 
 app.use(express.static(__dirname + '/../client/dist'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/add', function (req, res) {
   // console.log('get request to server')
-  // res.send('GET request to the homepage')
+  // console.log(typeof req.body, 'from server <><><><><><><>');
+  database.save(req.body);
 
-
-  database.save()
+  res.status(201).send();
+  
 })
 
 app.listen(3000, function() {
